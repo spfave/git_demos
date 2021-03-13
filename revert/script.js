@@ -1,13 +1,13 @@
 // Initial Commit
-var formEl = $('#skills-form');
-var nameInputEl = $('#skill-name');
-var dateInputEl = $('#datepicker');
-var skillsListEl = $('#skills-list');
+var formEl = $("#skills-form");
+var nameInputEl = $("#skill-name");
+var dateInputEl = $("#datepicker");
+var skillsListEl = $("#skills-list");
 
 var printSkills = function (name, date) {
-  var listEl = $('<li>');
-  var listDetail = name.concat(' on ', date);
-  listEl.addClass('list-group-item').text(listDetail);
+  var listEl = $("<li>");
+  var listDetail = name.concat(" on ", date);
+  listEl.addClass("list-group-item").text(listDetail);
   listEl.appendTo(skillsListEl);
 };
 
@@ -18,14 +18,41 @@ var handleFormSubmit = function (event) {
   var dateInput = dateInputEl.val();
 
   if (!nameInput || !dateInput) {
-    console.log('You need to fill out the form!');
+    console.log("You need to fill out the form!");
     return;
   }
 
   printSkills(nameInput, dateInput);
 
-  nameInputEl.val('');
-  dateInputEl.val('');
+  nameInputEl.val("");
+  dateInputEl.val("");
 };
 
-formEl.on('submit', handleFormSubmit);
+formEl.on("submit", handleFormSubmit);
+
+// Autocomplete widget
+$(function () {
+  var skillNames = [
+    "Bootstrap",
+    "C",
+    "C++",
+    "CSS",
+    "Express.js",
+    "Git",
+    "HTML",
+    "Java",
+    "JavaScript",
+    "jQuery",
+    "JSON",
+    "MySQL",
+    "Node.js",
+    "NoSQL",
+    "PHP",
+    "Python",
+    "React",
+    "Ruby",
+  ];
+  nameInputEl.autocomplete({
+    source: skillNames,
+  });
+});
