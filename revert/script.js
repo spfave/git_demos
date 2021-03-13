@@ -64,11 +64,3 @@ $(function () {
     changeYear: true,
   });
 });
-
-// Sortable interaction
-$(function () {
-  skillsListEl.sortable({
-    placeholder: "ui-state-highlight",
-  });
-  $("#skills-list").disableSelection();
-});
